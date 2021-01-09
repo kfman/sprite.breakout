@@ -18,5 +18,12 @@ class Player: SKSpriteNode{
         super.init(coder: aDecoder)
     }
     
-    
+    func setup(){
+        physicsBody = SKPhysicsBody.init(rectangleOf: size)
+        physicsBody!.affectedByGravity = false
+        physicsBody!.isDynamic = false
+        physicsBody!.allowsRotation = false
+        physicsBody!.friction = 0
+        physicsBody!.restitution = 1.0
+    }
 }

@@ -16,7 +16,7 @@ class Level_1: SKScene {
     private var ball: Ball!
     
     override func didMove(to view: SKView) {
-        physicsWorld.gravity = CGVector(dx: 0, dy: -9.8)
+        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.player = childNode(withName: "player") as? Player
         player.setup()
         self.ball = childNode(withName: "ball") as? Ball

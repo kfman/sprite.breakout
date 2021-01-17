@@ -18,17 +18,18 @@ class Ball: SKSpriteNode {
         phys.affectedByGravity = true
         phys.allowsRotation = false
         phys.isDynamic = true
-        phys.friction = 0
+
+        phys.linearDamping = 0
         phys.restitution = 1.0
         
         physicsBody = phys
     
         
-        physicsBody!.applyImpulse(CGVector(dx: 0, dy: 10))
+        physicsBody!.applyImpulse(CGVector(dx: 0, dy: -10))
     }
     
     func hit(){
-        self.physicsBody!.applyImpulse(CGVector(dx:0, dy:50))
+        //self.physicsBody!.applyImpulse(CGVector(dx:0, dy:50))
     }
     
 }

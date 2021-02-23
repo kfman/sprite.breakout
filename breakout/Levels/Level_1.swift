@@ -46,6 +46,15 @@ class Level_1: SKScene, SKPhysicsContactDelegate {
                                  dy: (abs(contact.contactNormal.dy) > 0 ? -1.0 : 1.0) * ball.velocity.dy)
         
         
+        if (contact.bodyB.categoryBitMask == 0x08){
+            contact.bodyB.node?.removeFromParent()
+        }
+        
+        if (contact.bodyA.categoryBitMask == 0x08){
+            contact.bodyA.node?.removeFromParent()
+        }
+        
+
     }
     
     func touchDown(atPoint pos : CGPoint) {

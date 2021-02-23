@@ -8,7 +8,7 @@
 import SpriteKit
 import GameplayKit
 
-class Level_1: SKScene {
+class Level_1: SKScene, SKPhysicsContactDelegate {
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
@@ -16,6 +16,8 @@ class Level_1: SKScene {
     private var ball: Ball!
     
     override func didMove(to view: SKView) {
+        self.physicsWorld.contactDelegate = self
+        
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.player = childNode(withName: "player") as? Player
         player.setup()
@@ -27,10 +29,24 @@ class Level_1: SKScene {
                     child.physicsBody = SKPhysicsBody(rectangleOf: child.frame.size)
                     child.physicsBody!.affectedByGravity = false
                     child.physicsBody!.isDynamic = false
+                    child.physicsBody?.categoryBitMask = 0x04
                 }
         }
     }
     
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        print("Collision....\(contact.bodyA.categoryBitMask) and \(contact.bodyB.categoryBitMask)")
+        print("Normal \(contact.contactNormal.dx):\(contact.contactNormal.dy)")
+       
+        
+        let ball = contact.bodyA.categoryBitMask == 0x02 ? contact.bodyA : contact.bodyB
+        
+        ball.velocity = CGVector(dx: (abs(contact.contactNormal.dx) > 0 ? -1.0 : 1.0) * ball.velocity.dx,
+                                 dy: (abs(contact.contactNormal.dy) > 0 ? -1.0 : 1.0) * ball.velocity.dy)
+        
+        
+    }
     
     func touchDown(atPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
@@ -79,13 +95,13 @@ class Level_1: SKScene {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
-    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         
         if ball.position.y < -200{
             let gameOver = SKSpriteNode(texture: SKTexture(image: #imageLiteral(resourceName: "gameover")))
             addChild(gameOver)
+            isPaused = true
         }
     }
 }

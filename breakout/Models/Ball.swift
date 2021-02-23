@@ -14,18 +14,13 @@ class Ball: SKSpriteNode {
     }
     
     func setup(){
-        let phys = SKPhysicsBody(circleOfRadius: 10)
-        phys.affectedByGravity = true
-        phys.allowsRotation = false
-        phys.isDynamic = true
-
-        phys.linearDamping = 0
-        phys.restitution = 1.0
-        
-        physicsBody = phys
-    
-        
-        physicsBody!.applyImpulse(CGVector(dx: 0, dy: -10))
+        physicsBody = SKPhysicsBody(circleOfRadius: 10)
+        physicsBody!.categoryBitMask = 0x02
+        physicsBody!.collisionBitMask = 0x00
+        physicsBody!.contactTestBitMask = 0xFF
+        physicsBody!.applyImpulse(CGVector(dx: -0.5, dy: -1))
+        physicsBody!.linearDamping = 0
+        physicsBody!.angularDamping = 0
     }
     
     func hit(){

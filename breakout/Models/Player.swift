@@ -23,7 +23,8 @@ class Player: SKSpriteNode{
         physicsBody!.affectedByGravity = false
         physicsBody!.isDynamic = false
         physicsBody!.allowsRotation = false
-        physicsBody?.restitution = 1.0
-        
+        physicsBody!.categoryBitMask = 0x01
+        physicsBody!.collisionBitMask = 0
+        physicsBody?.isResting = true
     }
 }

@@ -18,7 +18,7 @@ class Ball: SKSpriteNode {
         physicsBody!.categoryBitMask = 0x02
         physicsBody!.collisionBitMask = 0x00
         physicsBody!.contactTestBitMask = 0xFF
-        physicsBody!.applyImpulse(CGVector(dx: -0.5, dy: -1))
+        physicsBody!.applyImpulse(CGVector(dx: -0.5, dy: -5))
         physicsBody!.linearDamping = 0
         physicsBody!.angularDamping = 0
     }

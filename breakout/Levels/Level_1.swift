@@ -41,10 +41,17 @@ class Level_1: SKScene, SKPhysicsContactDelegate {
        
         
         let ball = contact.bodyA.categoryBitMask == 0x02 ? contact.bodyA : contact.bodyB
+        let other = contact.bodyA.categoryBitMask != 0x02 ? contact.bodyA : contact.bodyB
         
-        ball.velocity = CGVector(dx: (abs(contact.contactNormal.dx) > 0 ? -1.0 : 1.0) * ball.velocity.dx,
-                                 dy: (abs(contact.contactNormal.dy) > 0 ? -1.0 : 1.0) * ball.velocity.dy)
-        
+        if other.categoryBitMask == 0x01 {
+            let playerContact = convert(contact.contactPoint, to: player)
+            print("hit player at \(playerContact.x * 3)")
+            ball.velocity = CGVector(dx: playerContact.x * 3, dy: -ball.velocity.dy)
+        } else {
+
+            ball.velocity = CGVector(dx: (abs(contact.contactNormal.dx) > 0.5 ? -1.0 : 1.0) * ball.velocity.dx,
+                                     dy: (abs(contact.contactNormal.dy) > 0.5 ? -1.0 : 1.0) * ball.velocity.dy)
+        }
         
         if (contact.bodyB.categoryBitMask == 0x08){
             contact.bodyB.node?.removeFromParent()

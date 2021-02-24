@@ -17,6 +17,7 @@
 		2436BAD025A9DC4900F2A5A5 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2436BACF25A9DC4900F2A5A5 /* Player.swift */; };
 		2436BAD825A9F0F000F2A5A5 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2436BAD725A9F0F000F2A5A5 /* Ball.swift */; };
 		245587DA25E580740010A641 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245587D925E580740010A641 /* Tile.swift */; };
+		245587DD25E6C9C10010A641 /* ShootTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 245587DC25E6C9C10010A641 /* ShootTiles.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		2436BACF25A9DC4900F2A5A5 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		2436BAD725A9F0F000F2A5A5 /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		245587D925E580740010A641 /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		245587DC25E6C9C10010A641 /* ShootTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ShootTiles.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				2436BABF25A9BFF300F2A5A5 /* Main.storyboard */,
 				2436BAC225A9BFF600F2A5A5 /* Assets.xcassets */,
 				2436BAC425A9BFF600F2A5A5 /* Info.plist */,
+				245587DC25E6C9C10010A641 /* ShootTiles.sks */,
 			);
 			path = breakout;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2436BAC125A9BFF300F2A5A5 /* Main.storyboard in Resources */,
+				245587DD25E6C9C10010A641 /* ShootTiles.sks in Resources */,
 				2436BAB825A9BFF300F2A5A5 /* Level_1.sks in Resources */,
 				2436BAC325A9BFF600F2A5A5 /* Assets.xcassets in Resources */,
 				2436BABA25A9BFF300F2A5A5 /* Actions.sks in Resources */,
